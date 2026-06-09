@@ -1,100 +1,387 @@
-*{
-    margin: 0px;
-    /*border: 0.5px solid red;*/
+/* ==============================
+   RESET & BASE STYLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-html{
-    /*color-scheme: dark;*/
+html {
+    color-scheme: dark;
 }
 
-body{
+body {
+    background: #0a0a0a;
     margin-top: 100px;
 }
 
-/* HEADER */
+h1, h2, h3, h4, h5, h6 {
+    color: #A89070;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* ==============================
+   HEADER & NAVIGATION
+============================== */
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 20px 50px;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
-
-.nav-left{
+/* Navigation Pill Base */
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     border-radius: 45px;
     background-color: rgba(0, 0, 0, 0.350);
-    border: 0.5px solid black;
+    border: 0.5px solid rgba(200, 184, 154, 0.18);
+    backdrop-filter: blur(16px) saturate(1.6);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
 }
 
-.nav-left > a{
+.nav-right {
+    gap: 5px;
+}
+
+/* Nav Left - Brand */
+.nav-left > a {
     font-size: 25px;
     padding: 5px;
     border-radius: 30px;
     font-style: italic;
     font-weight: 1000;
+    transition: color 0.2s ease;
 }
 
-.nav-right{
+.nav-left > a:hover {
+    color: #A89070;
+}
+
+/* Nav Right - Links */
+.nav-right > div > a {
+    color: rgba(255, 255, 255, 0.500);
+    padding: 10px;
+    border-radius: 25px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-right > div > a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #ffffff2b;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 15px;
-    border-radius: 45px;
-    background-color: rgba(0, 0, 0, 0.350);
-    gap: 5px;
-    border: 0.5px solid black;
 }
 
-.nav-right > div > a{
-    color: rgba(0, 0, 0, 0.750);
-    padding: 5px;
-    border-radius: 30px;
+/* ==============================
+   CONTENT SECTION
+============================== */
+
+.Content {
+    padding: 16px;
+    margin: 40px;
+    margin-top: 20px;
 }
 
-.nav-right > div > a:hover{
-    color: white;
+.Content h3 {
+    margin-bottom: 16px;
 }
 
-/* SECTION - EXPLORE */
-#Explore {
-  padding: 16px;
-  margin: 40px;
-  margin-top: 20px;
-}
-
-#Explore h3 {
-  margin-bottom: 16px;
-}
-
-/* Outer container — horizontal row */
+/* Image Container - Grid Layout */
 .image-container {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
-/* Each column */
+/* Image Column */
 .img-border {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
 }
 
-/* Images preserve ratio */
+/* Image Styles */
 .img-border img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 0.5px solid black;
-  border-radius: 4px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 0.5px solid rgba(200, 184, 154, 0.18);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease; 
+}
+
+/* Image Hover Effect */
+.img-border img:hover {
+    border-color: #A89070;
+    transform: scale(1.01);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(200, 184, 154, 0.12);
+}
+
+/* ==============================
+   ABOUT PAGE
+============================== */
+
+/* About Page Header */
+.about-header {
+    padding: 60px 60px 40px;
+    border-bottom: 0.5px solid rgba(200, 184, 154, 0.18);
+}
+
+.about-header div {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(240, 237, 230, 0.4);
+    margin-bottom: 16px;
+}
+
+.about-header h1 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 560px;
+    margin-bottom: 20px;
+}
+
+.about-header p {
+    font-size: 16px;
+    color: rgba(240, 237, 230, 0.6);
+    line-height: 1.75;
+    max-width: 500px;
+}
+
+/* About Sections */
+.about-sections {
+    padding: 0 60px;
+}
+
+.about-section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 0.5px solid rgba(200, 184, 154, 0.18);
+    align-items: start;
+}
+
+.about-section > div:first-child {
+    font-size: 13px;
+    font-weight: 500;
+    color: #A89070;
+    padding-top: 4px;
+}
+
+.about-section > div:last-child h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #F0EDE6;
+}
+
+.about-section > div:last-child p {
+    font-size: 15px;
+    color: rgba(240, 237, 230, 0.6);
+    line-height: 1.75;
+}
+
+/* About Cards Grid */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.about-card {
+    background-color: rgba(200, 184, 154, 0.06);
+    border: 0.5px solid rgba(200, 184, 154, 0.18);
+    border-radius: 12px;
+    padding: 20px 16px;
+    transition: background-color 0.2s ease;
+}
+
+.about-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #A89070;
+}
+
+.about-card p {
+    font-size: 13px;
+    color: rgba(240, 237, 230, 0.6);
+    line-height: 1.6;
+}
+
+/* ==============================
+   CONTACT FORM
+============================== */
+
+/* Page Header */
+.page-header {
+    padding: 60px 60px 40px;
+    border-bottom: 0.5px solid rgba(200, 184, 154, 0.18);
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: rgba(240, 237, 230, 0.6);
+    line-height: 1.75;
+}
+
+/* Contact Container */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 60px;
+}
+
+/* Contact Information Section */
+.contact-info h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    color: #F0EDE6;
+}
+
+.contact-info p {
+    font-size: 15px;
+    color: rgba(240, 237, 230, 0.6);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.contact-info strong {
+    color: #F0EDE6;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Contact Form Section */
+.contact-form h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    color: #F0EDE6;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #F0EDE6;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+/* Form Inputs */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    background-color: rgba(200, 184, 154, 0.06);
+    border: 0.5px solid rgba(200, 184, 154, 0.18);
+    border-radius: 6px;
+    color: #F0EDE6;
+    font-family: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(240, 237, 230, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #A89070;
+    background-color: rgba(200, 184, 154, 0.1);
+}
+
+/* Form Textarea */
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0a0a0a;
+    background-color: #A89070;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.02em;
+}
+
+button[type="submit"]:hover {
+    background-color: #C8B89A;
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .page-header {
+        padding: 40px 40px 30px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
 }
