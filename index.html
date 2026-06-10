@@ -30,9 +30,36 @@
     </header>
 
     <!-- ==============================
+         FEATURED SECTION
+    ============================== -->
+    <section class="featured">
+        <div class="featured-content">
+            <div class="featured-carousel">
+                <div class="carousel-wrapper">
+                    <img src="assets\index\img1.webp" alt="Featured Photography" class="carousel-image active">
+                    <img src="assets\index\img2.webp" alt="Featured Photography" class="carousel-image">
+                    <img src="assets\index\img3.webp" alt="Featured Photography" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+            <div class="featured-text">
+                <h2>Featured Collection</h2>
+                <p>Discover our latest collection of stunning photography. Each image tells a story, capturing moments of beauty and emotion through a unique lens.</p>
+                <a href="#explore" class="featured-link">View All</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
          CONTENT
     ============================== -->
-    <section class="Content">
+    <section class="Content" id="explore">
         <h3>Explore</h1>
         <div class="image-container">
             <div class="img-border">
@@ -61,8 +88,39 @@
          FOOTER
     ============================== -->
     <footer>
-        <p>&copy; 2026 Galleria Photograpica. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Galleria Photograpica</h3>
+                <p>Capturing moments of beauty and emotion through the lens of creativity.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Gallery</h4>
+                <p>Explore our diverse collection of photography spanning various themes and styles.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: info@galleria.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <div>
+                <p>&copy; 2026 Galleria Photograpica. All rights reserved.</p>
+                <p class="footer-disclaimer">Disclaimer: All media content displayed on this website is for demonstration purposes only. Images are not owned by Galleria Photograpica.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
