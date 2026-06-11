@@ -106,14 +106,22 @@ function initParticles() {
 
 // DATABASE FOR IMAGE DETAILS (MAP FILE NAME HERE)
 const imageDatabase = {
-    "img1.webp": { title: "Ivory Light", photographer: "Adrian Vidallon", date: "Oct 12, 2025" },
-    "img2.webp": { title: "Twin Shadows", photographer: "Jane Doe", date: "Nov 05, 2025" },
-    "img3.webp": { title: "Unwritten", photographer: "Alice Grey", date: "Jan 20, 2026" },
-    "img4.webp": { title: "Flight Simulator", photographer: "Mark Lee", date: "Aug 15, 2024" },
-    "img5.webp": { title: "Framed Thoughts", photographer: "Sam Wilson", date: "Feb 14, 2026" },
-    "img6.webp": { title: "Botanical Stillness", photographer: "Chris Evans", date: "Dec 01, 2025" },
-    "img7.webp": { title: "Head in the Clouds", photographer: "Emma Stone", date: "Sep 30, 2025" },
-    "img8.webp": { title: "Equine Connection", photographer: "Ryan Gosling", date: "Mar 10, 2026" }
+    "assets/index/chrysler_nyc.jpg": { title: "Chrysler Building at Night, New York", photographer: "Chalo Gallardo (@chalogallardo)", date: "December 13, 2021" },
+    "assets/index/Grand_Canyon_view_from_Pima_Point_2010.png": { title: "Grand Canyon South Rim", photographer: "Photo from Luca Galuzzi", date: "May 30, 2008" },
+    "assets/index/Lantern flies.webp": { title: "Lanternflies", photographer: "Khaichuin Sim", date: "February 2025" },
+    "assets/index/Lapu Lapu.jpg": { title: "Lapu Lapu Statue", photographer: "Dianne Concha", date: "November 6, 2025" },
+    "assets/index/man_top_shanghai.jpg": { title: "Man on Top of Shanghai Skyscraper", photographer: "Yiran Ding (@yiranding)", date: "April 23, 2018" },
+    "assets/index/Manila City Hall Clock.jpg": { title: "Manila City Hall Clock", photographer: "Ramius Aquiler", date: "May 28, 2026" },
+    "assets/index/Mayon Volcano.jpg": { title: "Mayon Volcano", photographer: "Alexis Ricardo Alaurin", date: "May 13, 2023" },
+    "assets/index/Plitvice_Lakes_National_Park.png": { title: "Plitvice Lakes National Park", photographer: "Diego Delso", date: "July 18, 2014" },
+    "assets/index/Quezon Monument.jpg": { title: "Quezon Monument", photographer: "Topi Satin", date: "May 10, 2025" },
+    "assets/index/Rice Terraces.jpg": { title: "Philippine Rice Terraces", photographer: "John Renzo Aledia", date: "December 3, 2016" },
+    "assets/index/Rizal Monument.jpg": { title: "RIzal Monument", photographer: "Ken Miranda", date: "February 3, 2026" },
+    "assets/index/roppongi_tower.jpg": { title: "Roppongi Hills Tower at Night, Tokyo", photographer: "Mark LeeRei Yamazaki (@kryhd)", date: "January 23, 2022" },
+    "assets/index/shibuya_crossing_above.jpg": { title: "Shibuya Street Neon, Tokyo", photographer: "ayumi kubo (@ayumikubo)", date: "February 23, 2026" },
+    "assets/index/Street Vendor.jpg": { title: "Streetfood Vendor", photographer: "Airam Dato-on", date: "January 30, 2026" },
+    "assets/index/UP Oblation.jpg": { title: "UP Oblation", photographer: "Mico Medel", date: "August 25, 2025" },
+    "assets/index/Vigan City.jpg": { title: "Vigan City", photographer: "Tine Angeles", date: "Nov 2, 2019" }
 };
 
 function initLightbox() {
@@ -148,10 +156,8 @@ function initLightbox() {
         img.addEventListener('click', (e) => {
             const src = e.target.getAttribute('src');
             
-            const filename = src.split(/[\\/]/).pop(); 
-            
             // Fetch data
-            const data = imageDatabase[filename] || { title: "Unknown Shot", photographer: "Unknown", date: "Unknown Date" };
+            const data = imageDatabase[src] || { title: "Unknown Shot", photographer: "Unknown", date: "Unknown Date" };
 
             // Populate Modal
             document.querySelector('.lightbox-img').src = src;

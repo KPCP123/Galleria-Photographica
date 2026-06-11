@@ -314,8 +314,8 @@ footer {
 
 /* Image Container - Grid Layout */
 .image-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
 }
 
@@ -323,7 +323,6 @@ footer {
 .img-border {
     display: flex;
     flex-direction: column;
-    flex: 1;
     gap: 8px;
 }
 
