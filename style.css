@@ -626,3 +626,141 @@ button[type="submit"]:active {
         font-size: 13px;
     }
 }
+
+/* ==============================
+   LIGHTBOX MODAL & LAYOUT
+============================== */
+
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 1000px;
+    width: 90%;
+    background-color: rgba(15, 15, 15, 0.85);
+    border: 0.5px solid rgba(200, 184, 154, 0.2);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    transform: scale(0.98);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #F0EDE6;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: #A89070;
+}
+
+/* Flexbox Layout: Image Left, Details Right */
+.lightbox-body {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.lightbox-left {
+    flex: 1.2;
+}
+
+.lightbox-img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 0.5px solid rgba(200, 184, 154, 0.1);
+}
+
+.lightbox-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.lightbox-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.desc-row {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 0.5px solid rgba(200, 184, 154, 0.18);
+}
+
+.info-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(168, 144, 112, 0.8); /* Gold/Tan accent color */
+    margin-bottom: 4px;
+}
+
+.info-data {
+    font-size: 18px;
+    color: #F0EDE6;
+    font-weight: 500;
+}
+
+.desc-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(240, 237, 230, 0.7);
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .lightbox-body {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .lightbox-left, .lightbox-right {
+        flex: 1;
+        width: 100%;
+    }
+}
